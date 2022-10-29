@@ -4,6 +4,9 @@ using UnityEngine;
 using System.Threading;
 using Unity.VisualScripting;
 using UnityEngine.Experimental.GlobalIllumination;
+using Microsoft.Unity.VisualStudio.Editor;
+using UnityEngine.UI;
+
 
 public class Tools : MonoBehaviour
 {
@@ -11,9 +14,11 @@ public class Tools : MonoBehaviour
     public GameObject Flashlight;
     public GameObject FlashlightLight;
     public Light FL;
+    public static float power = 1;
     private void Start()
     {
         Flashlight.SetActive(true);
+        HealthBar.fill = 1f;
     }
     private void Update()
     {
@@ -42,21 +47,31 @@ public class Tools : MonoBehaviour
                 {
                     FL.enabled = true;
                     Debug.Log("ÔÎÍÀĞÈÊ ÂÊËŞ×¨Í È ÒÎËÜÊÎ ×ÒÎ ÑÂÅÒ ÂÊËŞ×¨Í ");
+                    power -= Time.deltaTime * 20;
+                    Debug.Log("power--");
                 }
                 else
                 {
                     FL.enabled = false;
                     Debug.Log("ÔÎÍÀĞÈÊ ÂÊËŞ×¨Í È ÒÎËÜÊÎ ×ÒÎ ÑÂÅÒ ÂÛÊËŞ×ÅÍ ");
+                    power += Time.deltaTime * 20;
+                    Debug.Log("Power++");
                 }
             }
             else
             {
                 FL.enabled=false;
                 Debug.Log("ÔÎÍÀĞÈÊ ÂÛÊËŞ×ÅÍ È ÑÂÅÒ ÒÎÆÅ");
+                power += Time.deltaTime * 20;
+                Debug.Log("Power+");
+
             }
-            
+         HealthBar.fill = power;
         }
+        ///ØÊÀËÀ ÇÀĞßÄÀ ÔÎÍÀĞÈÊÀ
+        
     }
 
 
 }
+ 
