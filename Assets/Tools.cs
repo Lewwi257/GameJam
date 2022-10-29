@@ -8,13 +8,14 @@ public class Tools : MonoBehaviour
 {
     public GameObject Weapon;
     public GameObject Flashlight;
-    bool condition = true;
+    public GameObject FlashlightLight;
     private void Start()
     {
         Flashlight.SetActive(true);
     }
     private void Update()
     {
+        ///ÂÊËŞ×ÅÍÈÅ ÂÛÊËŞ×ÅÍÈÅ ÔÎÍÀĞÈÊÀ ÊÀÊ ÎÁÜÅÊÒÀ
         if (Input.GetKeyDown(KeyCode.Q))
         {
             Debug.Log("Q");
@@ -29,6 +30,14 @@ public class Tools : MonoBehaviour
                 Debug.Log("Active activated");
             }
             /// ÂÛÊËŞ×Àß ÎÁÜÅÊÒ ÎÍ ÏÅĞÅÑÒÀ¨Ò ĞÀÁÎÒÀÒÜ ÏÎËÍÎÑÒÜ È ÑÊĞÈÏÒ ÍÅ ĞÀÁÎÒÀÅÒ ÒÎÆÅ!!!!!!!!!!!!!!!
+        }
+        ///ÂÊËŞ×ÅÍÈÅ ÂÛÊËŞ×ÅÍÈÅ ÑÂÅÒÀ ÔÎÍÀĞÈÊÀ
+        if (Input.GetKey(KeyCode.Mouse1))
+        {
+            if (FlashlightLight.activeSelf == false && Flashlight.activeSelf == true)
+            {
+                FlashlightLight.SetActive(true);
+            }
         }
     }
 
