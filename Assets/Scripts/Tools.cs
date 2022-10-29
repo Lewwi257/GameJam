@@ -29,6 +29,8 @@ public class Tools : MonoBehaviour
             if (Flashlight.activeSelf==true)
             {
                 Flashlight.SetActive(false);
+                FL.enabled=false;
+                HealthBar.Con = false;
                 Debug.Log("false activated");
             }
             else
@@ -47,31 +49,39 @@ public class Tools : MonoBehaviour
                 {
                     FL.enabled = true;
                     Debug.Log("ÔÎÍÀĞÈÊ ÂÊËŞ×¨Í È ÒÎËÜÊÎ ×ÒÎ ÑÂÅÒ ÂÊËŞ×¨Í ");
-                    power -= Time.deltaTime * 20;
                     Debug.Log("power--");
+                    HealthBar.Con = true;
                 }
                 else
                 {
                     FL.enabled = false;
                     Debug.Log("ÔÎÍÀĞÈÊ ÂÊËŞ×¨Í È ÒÎËÜÊÎ ×ÒÎ ÑÂÅÒ ÂÛÊËŞ×ÅÍ ");
-                    power += Time.deltaTime * 20;
                     Debug.Log("Power++");
+                    HealthBar.Con = false;
+
                 }
             }
             else
             {
-                FL.enabled=false;
-                Debug.Log("ÔÎÍÀĞÈÊ ÂÛÊËŞ×ÅÍ È ÑÂÅÒ ÒÎÆÅ");
-                power += Time.deltaTime * 20;
-                Debug.Log("Power+");
-
+                if (FL.enabled == false)
+                {
+                    FL.enabled = false;
+                    Debug.Log("ÔÎÍÀĞÈÊ ÂÛÊËŞ×ÅÍ È ÑÂÅÒ ÒÎÆÅ");
+                    Debug.Log("Power+");
+                    HealthBar.Con = false;
+                }
+                else
+                {
+                    FL.enabled = false;
+                    Debug.Log("ÔÎÍÀĞÈÊ ÂÛÊËŞ×ÅÍ È ÑÂÅÒ ÒÎÆÅ");
+                    Debug.Log("Power+");
+                    HealthBar.Con = false;
+                }
             }
-         HealthBar.fill = power;
+            
         }
         ///ØÊÀËÀ ÇÀĞßÄÀ ÔÎÍÀĞÈÊÀ
         
     }
-
-
 }
  
