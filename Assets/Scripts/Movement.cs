@@ -3,9 +3,11 @@ using System.Collections.Generic;
 using Unity.VisualScripting.Dependencies.NCalc;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class Movement : MonoBehaviour
 {
+    [SerializeField] private InputActionReference movement, attack, pointerPosition;
     [SerializeField] public float speed;
     private void Update()
     {
@@ -34,5 +36,7 @@ public class Movement : MonoBehaviour
         {
             transform.position = new Vector3(transform.position.x - direction, transform.position.y, transform.position.z);
         }
+
+        
     }
 }
