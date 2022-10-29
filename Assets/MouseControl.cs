@@ -4,11 +4,30 @@ using UnityEngine;
 
 public class MouseControl : MonoBehaviour
 {
-    public float offset;
-    void Update()
+    private Vector2 _one;
+    private Vector2 _two;
+    private Transform _thistransform;
+    public Camera _camera;
+    private void Start()
     {
-        Vector3 diference = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
-        float rotateZ = Mathf.Atan2(diference.y, diference.x)*Mathf.Rad2Deg;
-        transform.rotation=Quaternion.Euler(0f,0f,rotateZ*offset);
+        _one = Vector2.right;
+        _camera = Camera.main;
+        _thistransform = transform;
     }
+    private float GetValueZ()
+    {
+        _two = Input.mousePosition - _thistransform.position;
+        float scalarComposition = _one.x * _two.x + _one.y * _two.y;
+        float mudelesComposition = _one.magnitude * _two.magnitude;
+        float division = scalarComposition / mudelesComposition;
+        float angle = Mathf.Acos(division) * Mathf.Rad2Deg;
+        return angle;
+
+    }
+    private void Update()
+    {
+        float z = GetValueZ();
+        _thistransform.rotation = Quaternion.Euler(0, 0, z);
+    }
+
 }

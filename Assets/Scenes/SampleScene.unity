@@ -301,6 +301,7 @@ GameObject:
   m_Component:
   - component: {fileID: 316089979}
   - component: {fileID: 316089980}
+  - component: {fileID: 316089981}
   m_Layer: 0
   m_Name: Square
   m_TagString: Untagged
@@ -375,6 +376,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &316089981
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 316089978}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d029e41d336c67418b6f61e72a974cd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _camera: {fileID: 64110384}
 --- !u!1 &545715758
 GameObject:
   m_ObjectHideFlags: 0
@@ -468,7 +482,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 545715758}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c18b139d22f184743b437136b1e1258b, type: 3}
   m_Name: 
@@ -476,6 +490,7 @@ MonoBehaviour:
   Weapon: {fileID: 0}
   Flashlight: {fileID: 545715758}
   FlashlightLight: {fileID: 0}
+  FL: {fileID: 0}
 --- !u!1 &576440615
 GameObject:
   m_ObjectHideFlags: 0
@@ -486,7 +501,6 @@ GameObject:
   m_Component:
   - component: {fileID: 576440616}
   - component: {fileID: 576440618}
-  - component: {fileID: 576440617}
   m_Layer: 0
   m_Name: SpotLight
   m_TagString: Untagged
@@ -509,21 +523,6 @@ Transform:
   m_Father: {fileID: 545715760}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 270, y: 0, z: 0}
---- !u!114 &576440617
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 576440615}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c18b139d22f184743b437136b1e1258b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Weapon: {fileID: 0}
-  Flashlight: {fileID: 0}
-  FlashlightLight: {fileID: 0}
 --- !u!108 &576440618
 Light:
   m_ObjectHideFlags: 0
@@ -797,6 +796,7 @@ MonoBehaviour:
   Weapon: {fileID: 0}
   Flashlight: {fileID: 545715758}
   FlashlightLight: {fileID: 0}
+  FL: {fileID: 576440618}
 --- !u!1 &1265335329
 GameObject:
   m_ObjectHideFlags: 0
@@ -837,12 +837,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1265335329}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6d029e41d336c67418b6f61e72a974cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  offset: 0
+  _camera: {fileID: 0}
 --- !u!1 &1471717027
 GameObject:
   m_ObjectHideFlags: 0
