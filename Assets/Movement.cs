@@ -9,8 +9,15 @@ public class Movement : MonoBehaviour
     [SerializeField] public float speed;
     private void Update()
     {
+        if (Input.GetKey(KeyCode.LeftShift))
+        {
+            speed = 2;
+        }
+        else
+        {
+            speed = 1;
+        }
         var direction = Time.deltaTime * speed;
-
         if (Input.GetKey(KeyCode.W))
         {
             transform.position = new Vector3(transform.position.x, transform.position.y + direction, transform.position.z);
@@ -26,7 +33,6 @@ public class Movement : MonoBehaviour
         if (Input.GetKey(KeyCode.A))
         {
             transform.position = new Vector3(transform.position.x - direction, transform.position.y, transform.position.z);
-
         }
     }
 }
